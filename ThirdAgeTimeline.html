@@ -9,12 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <meta id="meta-theme-color" name="theme-color" content="#071025">
+    <script src="theme.js" defer></script>
     <script src="scroll-animations.js"></script>
 </head>
 <body>
     <header>
         <nav>
-            <a href="Index.html" class="logo">
+            <a href="index.html" class="logo">
                 <span>Alvora</span>
             </a>
             <button class="hamburger-menu" aria-label="Toggle menu" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('mobile-open');">
@@ -23,10 +25,10 @@
                 <span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="Index.html">Home</a></li>
-                <li><a href="Character_Profiles.html">Character Profiles</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="character-profiles.html">Character Profiles</a></li>
                 <li class="dropdown">
-                    <span class="dropdown-toggle">Timeline</span>
+                    <span class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Timeline</span>
                     <div class="dropdown-content">
                         <a href="FirstAgeTimeline.html">First Age Timeline</a>
                         <a href="SecondAgeTimeline.html">Second Age Timeline</a>
@@ -34,6 +36,7 @@
                     </div>
                 </li>
             </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" aria-pressed="false">🌙</button>
         </nav>
     </header>
 
@@ -285,3 +288,4 @@
     </style>
 </body>
 </html>
+

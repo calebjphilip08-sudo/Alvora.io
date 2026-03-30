@@ -9,21 +9,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script>(function(){var s=localStorage.getItem('alvora-theme');if(s==='dark'||s==='light'){document.documentElement.setAttribute('data-theme',s);}})();</script>
+    <meta id="meta-theme-color" name="theme-color" content="#071025">
+    <script src="theme.js" defer></script>
 </head>
 <body>
     <header>
         <nav>
-            <a href="Index.html" class="logo"><span>Alvora</span></a>
+            <a href="index.html" class="logo"><span>Alvora</span></a>
             <button class="hamburger-menu" aria-label="Toggle menu"
                 onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('mobile-open');">
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links">
-                <li><a href="Index.html">Home</a></li>
-                <li><a href="Character_Profiles.html">Character Profiles</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="character-profiles.html">Character Profiles</a></li>
                 <li class="dropdown">
-                    <span class="dropdown-toggle">Timeline</span>
+                    <span class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Timeline</span>
                     <div class="dropdown-content">
                         <a href="FirstAgeTimeline.html">First Age Timeline</a>
                         <a href="SecondAgeTimeline.html">Second Age Timeline</a>
@@ -31,7 +32,7 @@
                     </div>
                 </li>
             </ul>
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme" aria-pressed="false">🌙</button>
         </nav>
     </header>
 
@@ -60,16 +61,6 @@
     <footer><p>© 2026 C.J Philip. All rights reserved.</p></footer>
 
     <script src="scroll-animations.js"></script>
-    <script>
-      (function(){
-        var btn=document.getElementById('theme-toggle');
-        function getEff(){var s=localStorage.getItem('alvora-theme');if(s)return s;return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
-        function setIcon(){btn.textContent=getEff()==='dark'?'☀️':'🌙';}
-        setIcon();
-        btn.addEventListener('click',function(){var n=getEff()==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('alvora-theme',n);setIcon();});
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(!localStorage.getItem('alvora-theme'))setIcon();});
-      })();
-    </script>
 
     <style>
         .page-hero { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem 2rem; }
@@ -100,3 +91,4 @@
     </style>
 </body>
 </html>
+
