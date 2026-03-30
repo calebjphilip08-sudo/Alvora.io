@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Age Timeline — Alvora</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>(function(){var s=localStorage.getItem('alvora-theme');if(s==='dark'||s==='light'){document.documentElement.setAttribute('data-theme',s);}})();</script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="Index.html" class="logo"><span>Alvora</span></a>
+            <button class="hamburger-menu" aria-label="Toggle menu"
+                onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('mobile-open');">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="Character_Profiles.html">Character Profiles</a></li>
+                <li class="dropdown">
+                    <span class="dropdown-toggle">Timeline</span>
+                    <div class="dropdown-content">
+                        <a href="FirstAgeTimeline.html">First Age Timeline</a>
+                        <a href="SecondAgeTimeline.html">Second Age Timeline</a>
+                        <a href="ThirdAgeTimeline.html">Third Age Timeline</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">🌙</button>
+        </nav>
+    </header>
+
+    <div class="page-content-wrapper">
+        <div class="page-hero">
+            <h1>Alvora First Age: Timeline</h1>
+            <p class="subtitle">The age of founding — gods, empires, and the first great covenants</p>
+        </div>
+
+        <section class="timeline-section fade-in-section">
+            <div class="timeline-container">
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"><div class="marker-circle"></div></div>
+                    <div class="timeline-content">
+                        <h3>Year: 0</h3>
+                        <p class="milestone-title">The First Age Begins</p>
+                        <p>The First Age of Alvora begins. Events to be detailed.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer><p>© 2026 C.J Philip. All rights reserved.</p></footer>
+
+    <script src="scroll-animations.js"></script>
+    <script>
+      (function(){
+        var btn=document.getElementById('theme-toggle');
+        function getEff(){var s=localStorage.getItem('alvora-theme');if(s)return s;return window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+        function setIcon(){btn.textContent=getEff()==='dark'?'☀️':'🌙';}
+        setIcon();
+        btn.addEventListener('click',function(){var n=getEff()==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('alvora-theme',n);setIcon();});
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){if(!localStorage.getItem('alvora-theme'))setIcon();});
+      })();
+    </script>
+
+    <style>
+        .page-hero { max-width: 1400px; margin: 0 auto; padding: 3rem 2rem 2rem; }
+        .page-hero h1 { font-family: 'Playfair Display', 'Georgia', serif; font-size: 3rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--dark-text); letter-spacing: -0.5px; }
+        .page-hero .subtitle { font-size: 1.2rem; color: var(--gray); font-style: italic; }
+        .timeline-section { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        .timeline-container { position: relative; padding: 2rem 0; }
+        .timeline-container::before { content: ''; position: absolute; left: 30px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--accent), transparent); }
+        .timeline-item { display: flex; margin-bottom: 3rem; position: relative; }
+        .timeline-marker { flex-shrink: 0; width: 60px; display: flex; justify-content: center; position: relative; z-index: 1; }
+        .marker-circle { width: 16px; height: 16px; background: var(--surface); border: 3px solid var(--accent); border-radius: 50%; margin-top: 4px; transition: all 0.3s ease; }
+        .timeline-item:hover .marker-circle { width: 20px; height: 20px; box-shadow: 0 0 0 4px rgba(196,30,58,0.2); }
+        .timeline-content { margin-left: 2rem; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 4px; transition: all 0.3s ease; flex: 1; }
+        .timeline-item:hover .timeline-content { border-color: var(--accent); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .timeline-content h3 { font-family: 'Playfair Display', 'Georgia', serif; font-size: 1.3rem; font-weight: 700; margin: 0 0 0.5rem; color: var(--accent); }
+        .milestone-title { font-weight: 600; font-size: 1rem; color: var(--dark-text); margin: 0 0 0.5rem; }
+        .timeline-content p { margin: 0; color: var(--gray); font-size: 0.95rem; line-height: 1.6; }
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 2rem; }
+            .timeline-section { padding: 2rem 1.5rem; }
+            .timeline-container::before { left: 12px; }
+            .timeline-marker { width: 30px; }
+            .marker-circle { width: 12px; height: 12px; border-width: 2px; }
+            .timeline-content { margin-left: 1rem; padding: 1rem; }
+            .timeline-content h3 { font-size: 1.1rem; }
+            .timeline-content p { font-size: 0.9rem; }
+        }
+    </style>
+</body>
+</html>
